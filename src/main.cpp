@@ -35,18 +35,58 @@ int main() {
       {"pop", 0},
       {"time", 0},
     }},
+    {"boost_priority_queue", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"fibonacci_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"binomial_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"pairing_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"skew_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"2_ary_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"3_ary_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
     {"4_ary_heap", {
+      {"push", 0},
+      {"pop", 0},
+      {"time", 0},
+    }},
+    {"8_ary_heap", {
       {"push", 0},
       {"pop", 0},
       {"time", 0},
     }},
   };
 
-  int exps = 10;
+  int exps = 5;
   cout << "Running global Dijkstra " << exps << " times" << endl;
   while(exps--)
   for (int i = 0; i < n; i++) {
-    // pq
+    // stl_pq
     {
       auto start = high_resolution_clock::now();
       std::priority_queue<pair<int, int>> pq;
@@ -56,6 +96,90 @@ int main() {
       heapMetrics["stl_priority_queue"]["time"] += duration.count();
       heapMetrics["stl_priority_queue"]["push"] += pushCount;
       heapMetrics["stl_priority_queue"]["pop"] += popCount;
+    }
+
+    // boost_pq
+    {
+      auto start = high_resolution_clock::now();
+      boost::heap::priority_queue<pair<int, int>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["boost_priority_queue"]["time"] += duration.count();
+      heapMetrics["boost_priority_queue"]["push"] += pushCount;
+      heapMetrics["boost_priority_queue"]["pop"] += popCount;
+    }
+
+    // fibonacci_heap
+    {
+      auto start = high_resolution_clock::now();
+      fibonacci_heap<pair<int, int>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["fibonacci_heap"]["time"] += duration.count();
+      heapMetrics["fibonacci_heap"]["push"] += pushCount;
+      heapMetrics["fibonacci_heap"]["pop"] += popCount;
+    }
+
+    // binomial_heap
+    {
+      auto start = high_resolution_clock::now();
+      binomial_heap<pair<int, int>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["binomial_heap"]["time"] += duration.count();
+      heapMetrics["binomial_heap"]["push"] += pushCount;
+      heapMetrics["binomial_heap"]["pop"] += popCount;
+    }
+
+    // pairing_heap
+    {
+      auto start = high_resolution_clock::now();
+      pairing_heap<pair<int, int>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["pairing_heap"]["time"] += duration.count();
+      heapMetrics["pairing_heap"]["push"] += pushCount;
+      heapMetrics["pairing_heap"]["pop"] += popCount;
+    }
+
+    // skew_heap
+    {
+      auto start = high_resolution_clock::now();
+      skew_heap<pair<int, int>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["skew_heap"]["time"] += duration.count();
+      heapMetrics["skew_heap"]["push"] += pushCount;
+      heapMetrics["skew_heap"]["pop"] += popCount;
+    }
+
+    // 2_ary_heap
+    {
+      auto start = high_resolution_clock::now();
+      d_ary_heap<pair<int, int>, boost::heap::arity<2>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["2_ary_heap"]["time"] += duration.count();
+      heapMetrics["2_ary_heap"]["push"] += pushCount;
+      heapMetrics["2_ary_heap"]["pop"] += popCount;
+    }
+
+    // 3_ary_heap
+    {
+      auto start = high_resolution_clock::now();
+      d_ary_heap<pair<int, int>, boost::heap::arity<3>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["3_ary_heap"]["time"] += duration.count();
+      heapMetrics["3_ary_heap"]["push"] += pushCount;
+      heapMetrics["3_ary_heap"]["pop"] += popCount;
     }
 
     // 4_ary_heap
@@ -68,6 +192,18 @@ int main() {
       heapMetrics["4_ary_heap"]["time"] += duration.count();
       heapMetrics["4_ary_heap"]["push"] += pushCount;
       heapMetrics["4_ary_heap"]["pop"] += popCount;
+    }
+
+    // 8_ary_heap
+    {
+      auto start = high_resolution_clock::now();
+      d_ary_heap<pair<int, int>, boost::heap::arity<8>> pq;
+      Dijkstra(g, i, pq);
+      auto stop = high_resolution_clock::now();
+      auto duration = duration_cast<microseconds>(stop - start);
+      heapMetrics["8_ary_heap"]["time"] += duration.count();
+      heapMetrics["8_ary_heap"]["push"] += pushCount;
+      heapMetrics["8_ary_heap"]["pop"] += popCount;
     }
   }
 
