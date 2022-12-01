@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.tcc": "cpp",
+    "chrono": "cpp",
+    "random": "cpp",
+    "regex": "cpp",
+    "*.inc": "cpp",
+    "algorithm": "cpp"
+  }
+}

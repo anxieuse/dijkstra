@@ -1,0 +1,9 @@
+2022-11-29 17:36:15
+Cmdline args: 2000 nodes, 0 demands, 64 colors, length: 30..1000, dmd width: 1..8, rectangle: 2000 x 1000, MC=0.5, graphtype=UG.
+Output: 2000v2579e20000d689c
+2022-11-29 17:43:32
+Cmdline args: 2000 nodes, 0 demands, 64 colors, length: 30..1000, dmd width: 1..8, rectangle: 2000 x 1000, MC=0.5, graphtype=UG.
+Output: 2000v2554e20000d671c
+2022-11-29 18:22:00
+Cmdline args: 2000 nodes, 0 demands, 64 colors, length: 30..1000, dmd width: 1..8, rectangle: 2000 x 1000, MC=0.5, graphtype=UG.
+Output: 2000v2585e20000d679c
