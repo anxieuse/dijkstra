@@ -22,10 +22,12 @@ To run the program, run the following command:
 
 The input file should be in the following format:
 ```
-<Number of vertices> <Number of edges>
+<Number of vertices> <Number of edges> <Number of demands>
 <Source vertex> <Destination vertex> <Weight>
 ...
 ```
+
+Number of demands and the demands themselves are ignored in this implementation. The program will run the Dijkstra algorithm on every vertex in the graph.
 
 ## Modify the program
 
