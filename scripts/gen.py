@@ -115,7 +115,7 @@ def create_graph_files(gr: nx.Graph, points, args, logger, argsinfo):
           dist[v1][v2] = xyz_euclidian_distance(points[v1], points[v2])
 
     logger.info("Write test input data in contest format")
-    with open(graph_dirpath + '.txt', 'wt') as ofile:
+    with open(graph_dirpath + '/in.txt', 'wt') as ofile:
        ofile.write(f"{nodes_cnt} {edges_cnt} {demands_num}\n")
        ofile.write("\n".join([f'{v1 + 1} {v2 + 1} {int(dist[v1][v2])}' for v1, v2 in gr.edges()]) + '\n')
        ofile.write("\n".join([f'{id + 1} {d[0] + 1} {d[1] + 1}' for id, d in enumerate(demands)]) + '\n')

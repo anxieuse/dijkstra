@@ -1,5 +1,2 @@
-main: main.cpp
+main: main.cpp dijk.hpp graph.hpp
 	g++ -o main main.cpp -Ofast
-
-debug: main.cpp
-	g++ -o main main.cpp -g3
