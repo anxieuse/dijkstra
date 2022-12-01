@@ -41,15 +41,55 @@ On my machine, the results are as follows:
 $ make; ./main < ../tests/2000v2585e20000d679c/in.txt
 g++ -o main main.cpp -Ofast
 Reading edges
-Running global Dijkstra 10 times
+Running global Dijkstra 1000 times
+
+3_ary_heap
+time: 0.049959s
+pop: 7503000 operations
+push: 5503000 operations
 
 4_ary_heap
-time: 0.012418s
-pop: 75150 operations
-push: 55150 operations
+time: 0.047678s
+pop: 7503000 operations
+push: 5503000 operations
+
+2_ary_heap
+time: 0.04719s
+pop: 7503000 operations
+push: 5503000 operations
+
+skew_heap
+time: 0.093982s
+pop: 7503000 operations
+push: 5503000 operations
+
+8_ary_heap
+time: 0.047185s
+pop: 7503000 operations
+push: 5503000 operations
+
+binomial_heap
+time: 0.290924s
+pop: 7503000 operations
+push: 5503000 operations
+
+pairing_heap
+time: 0.165247s
+pop: 7503000 operations
+push: 5503000 operations
+
+fibonacci_heap
+time: 0.265638s
+pop: 7503000 operations
+push: 5503000 operations
+
+boost_priority_queue
+time: 0.067497s
+pop: 7503000 operations
+push: 5503000 operations
 
 stl_priority_queue
-time: 0.014747s
-pop: 75150 operations
-push: 55150 operations
+time: 0.100738s
+pop: 7503000 operations
+push: 5503000 operations
 ```

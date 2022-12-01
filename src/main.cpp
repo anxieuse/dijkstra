@@ -82,7 +82,7 @@ int main() {
     }},
   };
 
-  int exps = 5;
+  int exps = 1000;
   cout << "Running global Dijkstra " << exps << " times" << endl;
   while(exps--)
   for (int i = 0; i < n; i++) {
